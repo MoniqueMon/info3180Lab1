@@ -3,6 +3,8 @@ from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
 @app.route("/")
+def home():
+    return 'My home page'
 @app.route("/<myname>")
 def hello(myname='person'):
     return "Hello {0}".format(myname)
@@ -10,4 +12,4 @@ def hello(myname='person'):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host=os.getenv("IP", '0.0.0.0'), port=int(os.getenv("PORT", 8080)))
+    app.run(debug=True, host="0.0.0.0", port=8080) 
